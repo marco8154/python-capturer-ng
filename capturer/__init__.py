@@ -136,6 +136,10 @@ class MultiProcessHelper(object):
     def __init__(self):
         """Initialize a :class:`MultiProcessHelper` object."""
         self.processes = []
+        try:
+            self.context = multiprocessing.get_context('fork')
+        except ValueError:
+            self.context = multiprocessing.get_context()
 
     def start_child(self, target):
         """
@@ -146,8 +150,8 @@ class MultiProcessHelper(object):
                        :class:`multiprocessing.Event` to be set when the child
                        process has finished initialization.
         """
-        started_event = multiprocessing.Event()
-        child_process = multiprocessing.Process(target=target, args=(started_event,))
+        started_event = self.context.Event()
+        child_process = self.context.Process(target=target, args=(started_event,))
         self.processes.append(child_process)
         child_process.daemon = True
         child_process.start()
@@ -309,7 +313,7 @@ class CaptureOutput(MultiProcessHelper):
             # Capture (and most likely relay) stdout/stderr as separate streams.
             if self.relay:
                 # Start the subprocess to relay output.
-                self.output_queue = multiprocessing.Queue()
+                self.output_queue = self.context.Queue()
                 self.start_child(self.merge_loop)
             else:
                 # Disable relaying of output.
