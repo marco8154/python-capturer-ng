@@ -138,7 +138,7 @@ class CapturerTestCase(TestCase):
             sys.stdout.write("%s\n" % cur_stdout_2)
             print(cur_stdout_3)
             # Verify that all of the expected lines were captured.
-            assert all(l in capturer.get_lines() for l in (
+            assert all(line in capturer.get_lines() for line in (
                 cur_stdout_1, cur_stderr, sub_stderr,
                 sub_stdout, cur_stdout_2, cur_stdout_3,
             ))
