@@ -1,11 +1,8 @@
 capturer: Easily capture stdout/stderr of the current process and subprocesses
 ==============================================================================
 
-.. image:: https://travis-ci.org/xolox/python-capturer.svg?branch=master
-   :target: https://travis-ci.org/xolox/python-capturer
-
-.. image:: https://coveralls.io/repos/xolox/python-capturer/badge.svg?branch=master
-  :target: https://coveralls.io/r/xolox/python-capturer?branch=master
+.. image:: https://github.com/marco8154/python-capturer-ng/actions/workflows/test.yml/badge.svg?branch=master
+   :target: https://github.com/marco8154/python-capturer-ng/actions
 
 The capturer package makes it easy to capture the stdout_ and stderr_ streams
 of the current process *and subprocesses*. Output can be relayed to the
@@ -17,6 +14,35 @@ module). For usage instructions please refer to the documentation_.
 
 .. contents::
    :local:
+
+Maintenance status
+------------------
+
+This is a continuation of ``capturer``, originally written by Peter Odding
+(`@xolox <https://github.com/xolox>`_), whose last release was 3.0 in 2020.
+The original author is not involved in this continuation. Should he return or
+want the project back, it will be handed over.
+
+This continuation is **maintained by one person with AI agents, without
+independent review**. In practice that means:
+
+- Changes are written and checked with the help of AI coding agents. A second
+  AI model is used as an additional check. That is a tool, not an independent
+  human review.
+- There is no second maintainer who reads every change before a release.
+- The goal is to keep the package working on current Python versions. The API
+  and behaviour are meant to stay the same. Licence (MIT) and copyright are
+  unchanged.
+- Releases are built by GitHub Actions and published to PyPI through Trusted
+  Publishing, so every release can be traced to a tagged commit.
+
+Install it with ``pip install capturer-ng``. The import name is unchanged
+(``import capturer``), so do not install it next to the original
+``capturer`` distribution: both ship the same files and would overwrite
+each other.
+
+If you depend on this package in production, please pin a version and read the
+changelog before upgrading. Reviews, bug reports and co-maintainers are welcome.
 
 Status
 ------
@@ -36,7 +62,7 @@ as simple as:
 
 .. code-block:: console
 
-   $ pip install capturer
+   $ pip install capturer-ng
 
 There's actually a multitude of ways to install Python packages (e.g. the `per
 user site-packages directory`_, `virtual environments`_ or just installing
@@ -156,8 +182,8 @@ Contact
 
 The latest version of `capturer` is available on PyPI_ and GitHub_. The
 documentation is hosted on `Read the Docs`_ and includes a changelog_. For bug
-reports please create an issue on GitHub_. If you have questions, suggestions,
-etc. feel free to send me an e-mail at `peter@peterodding.com`_.
+reports please create an issue on GitHub_. Please do not contact the
+original author about problems with this continuation.
 
 License
 -------
@@ -178,16 +204,15 @@ not like it's very relevant :-).
 .. _get_bytes(): https://capturer.readthedocs.io/en/latest/api.html#capturer.CaptureOutput.get_bytes
 .. _get_lines(): https://capturer.readthedocs.io/en/latest/api.html#capturer.CaptureOutput.get_lines
 .. _get_text(): https://capturer.readthedocs.io/en/latest/api.html#capturer.CaptureOutput.get_text
-.. _GitHub: https://github.com/xolox/python-capturer
+.. _GitHub: https://github.com/marco8154/python-capturer-ng
 .. _gpg: https://en.wikipedia.org/wiki/GNU_Privacy_Guard
 .. _how pytest does it: https://pytest.org/latest/capture.html
 .. _iocapture: https://pypi.org/project/iocapture
 .. _MIT license: http://en.wikipedia.org/wiki/MIT_License
 .. _per user site-packages directory: https://www.python.org/dev/peps/pep-0370/
-.. _peter@peterodding.com: peter@peterodding.com
 .. _pty.openpty(): https://docs.python.org/2/library/pty.html#pty.openpty
 .. _pty: https://docs.python.org/2/library/pty.html
-.. _PyPI: https://pypi.org/project/capturer
+.. _PyPI: https://pypi.org/project/capturer-ng
 .. _pytest: https://pypi.org/project/pytest
 .. _Read the Docs: https://capturer.readthedocs.io
 .. _ssh: https://en.wikipedia.org/wiki/Secure_Shell

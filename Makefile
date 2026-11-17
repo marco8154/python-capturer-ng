@@ -23,16 +23,14 @@ default:
 	@echo '    make test       run the test suite, report coverage'
 	@echo '    make tox        run the tests on all Python versions'
 	@echo '    make docs       update documentation using Sphinx'
-	@echo '    make publish    publish changes to GitHub/PyPI'
 	@echo '    make clean      cleanup all temporary files'
 	@echo
 
 install:
 	@test -d "$(VIRTUAL_ENV)" || mkdir -p "$(VIRTUAL_ENV)"
 	@test -x "$(VIRTUAL_ENV)/bin/python" || virtualenv --python=$(PYTHON) --quiet "$(VIRTUAL_ENV)"
-	@pip install --quiet --requirement=requirements.txt
 	@pip uninstall --yes $(PACKAGE_NAME) &>/dev/null || true
-	@pip install --quiet --no-deps --ignore-installed .
+	@pip install --quiet --ignore-installed .
 
 reset:
 	@$(MAKE) clean
@@ -56,17 +54,9 @@ docs: install
 	@pip install --quiet sphinx
 	@cd docs && sphinx-build -nb html -d build/doctrees . build/html
 
-publish: install
-	@git push origin && git push --tags origin
-	@$(MAKE) clean
-	@pip install --quiet twine wheel
-	@python setup.py sdist bdist_wheel
-	@twine upload dist/*
-	@$(MAKE) clean
-
 clean:
 	@rm -Rf *.egg .cache .coverage .tox build dist docs/build htmlcov
 	@find -depth -type d -name __pycache__ -exec rm -Rf {} \;
 	@find -type f -name '*.pyc' -delete
 
-.PHONY: default install reset check test tox docs publish clean
+.PHONY: default install reset check test tox docs clean

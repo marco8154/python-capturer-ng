@@ -1,0 +1,67 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "capturer-ng"
+dynamic = ["version"]
+description = "Easily capture stdout/stderr of the current process and subprocesses"
+readme = "README.rst"
+license = "MIT"
+license-files = ["LICENSE.txt"]
+authors = [{ name = "Peter Odding", email = "peter@peterodding.com" }]
+maintainers = [{ name = "marco8154" }]
+requires-python = ">=3.10"
+dependencies = ["humanfriendly-ng"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "Intended Audience :: System Administrators",
+    "Operating System :: POSIX",
+    "Operating System :: Unix",
+    "Natural Language :: English",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: 3.15",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Topic :: Communications",
+    "Topic :: Scientific/Engineering :: Human Machine Interfaces",
+    "Topic :: Software Development",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: User Interfaces",
+    "Topic :: System :: Shells",
+    "Topic :: System :: System Shells",
+    "Topic :: System :: Systems Administration",
+    "Topic :: Terminals",
+    "Topic :: Text Processing :: General",
+]
+
+[project.urls]
+Homepage = "https://github.com/marco8154/python-capturer-ng"
+Documentation = "https://capturer.readthedocs.io"
+Changelog = "https://github.com/marco8154/python-capturer-ng/blob/master/CHANGELOG.rst"
+"Original project" = "https://github.com/xolox/python-capturer"
+
+[tool.hatch.version]
+path = "capturer/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["capturer"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/capturer",
+    "/docs",
+    "/*.rst",
+    "/*.txt",
+    "/tox.ini",
+]
