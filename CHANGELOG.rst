@@ -11,6 +11,40 @@ to `semantic versioning`_.
 .. _Keep a Changelog: http://keepachangelog.com/
 .. _semantic versioning: http://semver.org/
 
+`Release 4.0`_ (unreleased)
+---------------------------
+
+This is the first release of the continuation of :pypi:`capturer`, published
+on PyPI as :pypi:`capturer-ng`. The import name is still ``capturer`` and the
+API and behavior are unchanged, so it works as a drop-in replacement. Don't
+install it next to the original distribution: both ship the same files.
+
+The original author Peter Odding is not involved in this continuation. License
+(MIT) and copyright are unchanged. The continuation is maintained by one person
+with AI agents, without independent review (see the readme).
+
+**Noteworthy changes:**
+
+- Restored compatibility with Python 3.14 and newer, where the default start
+  method of ``multiprocessing`` on Linux is no longer ``fork``.
+  Capturing failed with a ``TypeError`` there and could leave the process
+  hanging. The ``fork`` start method is now requested explicitly (pull request
+  `#16`_ by Scott K Logan).
+
+- Python 3.10 is now the oldest supported version (this is backwards
+  incompatible, which is why the major version number was bumped). Python 3.10
+  up to 3.15 are tested.
+
+- The requirement on :pypi:`humanfriendly` changed to :pypi:`humanfriendly-ng`.
+
+**Internal changes:**
+
+- The package is built with ``pyproject.toml``, tested with GitHub Actions on
+  Linux and macOS and released through PyPI Trusted Publishing.
+
+.. _#16: https://github.com/xolox/python-capturer/pull/16
+.. _Release 4.0: https://github.com/marco8154/python-capturer-ng/compare/3.0...4.0
+
 `Release 3.0`_ (2020-03-07)
 ---------------------------
 

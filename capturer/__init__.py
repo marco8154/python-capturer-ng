@@ -1,7 +1,7 @@
 # Easily capture stdout/stderr of the current process and subprocesses.
 #
 # Author: Peter Odding <peter@peterodding.com>
-# Last Change: March 7, 2020
+# Last Change: November 17, 2026
 # URL: https://capturer.readthedocs.io
 
 """Easily capture stdout/stderr of the current process and subprocesses."""
@@ -22,7 +22,7 @@ from humanfriendly.text import compact, dedent
 from humanfriendly.terminal import clean_terminal_output
 
 # Semi-standard module versioning.
-__version__ = '3.0'
+__version__ = '4.0'
 
 # Define aliases for backwards compatibility.
 define_aliases(module_name=__name__, interpret_carriage_returns='humanfriendly.terminal.clean_terminal_output')
