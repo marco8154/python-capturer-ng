@@ -1,7 +1,6 @@
 # Test suite requirements.
-# The three packages test each other. Until the continued versions are on
-# PyPI they are installed from the default branch of their repositories.
-humanfriendly-ng @ git+https://github.com/marco8154/python-humanfriendly-ng@master
+# The three packages test each other.
+humanfriendly-ng >= 11.0
 coverage >= 4.2
 pytest >= 3.0.4
 pytest-cov >= 2.4.0
